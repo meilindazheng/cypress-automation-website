@@ -1,0 +1,16 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-50126
+END=10186
+title=Test Run Rakamin Staging Web Page TC 01 - POSITIVE -  Open and Verify Title
+[CHAPTER]
+TIMEBASE=1/1000
+START=10326
+END=70542
+title=Test Run Rakamin Staging Web Page TC 02 - POSITIVE - Click Question Mark and Verify Directed URL
+[CHAPTER]
+TIMEBASE=1/1000
+START=70491
+END=130769
+title=Test Run Rakamin Staging Web Page TC 03 - POSITIVE - Insert Kenali Minat Form 
