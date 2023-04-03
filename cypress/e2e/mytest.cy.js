@@ -242,7 +242,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
   })
 
   it('TC 10 - NEGATIVE - Login with the correct email and wrong password', function()  {
-    // TC 09 objective is to verify that user can't login with the correct email and wrong password.
+    // TC 10 objective is to verify that user can't login with the correct email and wrong password.
     // Given user opened Rakamin Staging Website
     cy.visit("https://web-staging.rakamin.com/")
     // Then user verify on navbar button
@@ -264,7 +264,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
   })
 
   it('TC 11 - NEGATIVE - Login with the wrong email and wrong password', function()  {
-    // TC 09 objective is to verify that user can't login with the correct email and wrong password.
+    // TC 11 objective is to verify that user can't login with the correct email and wrong password.
     // Given user opened Rakamin Staging Website
     cy.visit("https://web-staging.rakamin.com/")
     // Then user verify on navbar button
@@ -283,5 +283,51 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     cy.xpath("//*[@data-cy='login-submit-button']").click()
     // Then user verify wording to inform wrong password
     cy.xpath("//*[contains(text(), 'Email ini belum terdaftar sebagai akun di Rakamin Academy.')]").should('be.visible')
+  })
+
+  it('TC 12 - POSITIVE - Register with correct email password and name ', function()  {
+    // TC 12 objective is to verify that user can register with correct name, email and password.
+    // Given user opened Rakamin Staging Website
+    cy.visit("https://web-staging.rakamin.com/")
+    // Then user verify on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    // Then user click on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    // Then user verify on register button
+    cy.xpath("(//button[contains(text(),'Register')])[2]").should('be.visible')
+    // Then user click on register button
+    cy.xpath("(//button[contains(text(),'Register')])[2]").click()
+    // Then user set full name
+    cy.xpath("//*[@data-cy='full-name-text-field']").type("Zenith")
+    // Then user set email
+    cy.xpath("//*[@data-cy='login-email-text-field']").type("Zenith4@gmail.com")
+    // Then user set password
+    cy.xpath("//*[@data-cy='login-password-text-field']").type("Zenith123")
+    // Then user click on daftar
+    cy.xpath("//*[@data-cy='login-submit-button']").click()
+    // Then user set user's age
+    cy.xpath("//*[@placeholder='Tuliskan umur anda']").type("31")
+    // Then user select last education
+    cy.xpath("//*[@data-cy='SMA-radio-button']").click()
+    // Then user click on education field
+    cy.xpath("//*[@placeholder='Cari bidang pendidikan anda']").click()
+    // Then user click on desain
+    cy.xpath("//*[@data-cy='Ilmu Sosial-education-option']").click()
+    // Then user click on dropdown
+    cy.xpath("//*[@data-cy='job-experience-dropdown']").click()
+    // Then user select 1 year
+    cy.xpath("//*[@data-cy='1-job-experience-option']").click()
+    // Then user search job field
+    cy.xpath("//*[@placeholder='Cari bidang pekerjaan anda']").click()
+    // Then user click on bisnis dan pemasaran
+    cy.xpath("//*[@data-cy='Bisnis dan Pemasaran-jobfield-option']").click()
+    // Then user select on preferred job field
+    cy.xpath("//*[@data-cy='Engineering-radio-button']").click()
+    // Then user submit
+    cy.xpath("//*[@data-cy='submit-button']").click()
+    // Then user click on verify later
+    cy.xpath("//*[@data-cy='verify-later']").click()
+    // Then user verify if they are registered by checking current URL
+    cy.url().should('eq','https://web-staging.rakamin.com/dashboard/courses/enrolled')
   })
 })
