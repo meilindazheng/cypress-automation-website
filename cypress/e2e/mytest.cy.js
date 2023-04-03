@@ -143,7 +143,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Then user go back to the first link
     cy.go('back')
 
-    // Then user try to click on Explore Course Link
+    // Then user try to click on career profiler
     cy.xpath("//a[@href='/career-profiler']").scrollIntoView()
     cy.xpath("//a[@href='/career-profiler']").click()
     // Then user verify the associated link
@@ -151,7 +151,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Then user go back to the first link
     cy.go('back')
 
-    // Then user try to click on Explore Course Link
+    // Then user try to click on vix event
     cy.xpath("//a[@href='/virtual-internship-experience']").scrollIntoView()
     cy.xpath("//a[@href='/virtual-internship-experience']").click()
     // Then user verify the associated link
@@ -159,7 +159,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Then user go back to the first link
     cy.go('back')
 
-    // Then user try to click on Explore Course Link
+    // Then user try to click on rakamin tutor
     cy.xpath("//a[@href='/rakamin-tutor']").scrollIntoView()
     cy.xpath("//a[@href='/rakamin-tutor']").click()
     // Then user verify the associated link
@@ -167,7 +167,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Then user go back to the first link
     cy.go('back')
 
-    // Then user try to click on Explore Course Link
+    // Then user try to click on refund policies
     cy.xpath("//a[@href='/refund-policies']").scrollIntoView()
     cy.xpath("//a[@href='/refund-policies']").click()
     // Then user verify the associated link
@@ -183,7 +183,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Then user go back to the first link
     cy.go('back')
 
-    // Then user try to click on Explore Course Link
+    // Then user try to click on privacy policy
     cy.xpath("//a[@href='/privacy-policy']").scrollIntoView()
     cy.xpath("//a[@href='/privacy-policy']").click()
     // Then user verify the associated link
@@ -213,5 +213,31 @@ describe('Test Run Rakamin Staging Web Page', function()  {
       cy.go('back')
 
       
+  })
+
+  it('TC 09 - POSITIVE - Login with the correct email and password', function()  {
+    // TC 09 objective is to verify that user can login with the correct email and password.
+    // Given user opened Rakamin Staging Website
+    cy.visit("https://web-staging.rakamin.com/")
+    // Then user verify on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    // Then user click on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    // Then user verify on login button
+    cy.xpath("(//button[contains(text(),'Login')])[2]").should('be.visible')
+    // Then user click on login button
+    cy.xpath("(//button[contains(text(),'Login')])[2]").click()
+    // Then user set email
+    cy.xpath("//*[@data-cy='login-email-text-field']").type("abcd@gmail.com")
+    // Then user set password
+    cy.xpath("//*[@data-cy='login-password-text-field']").type("pandabear")
+    // Then user click submit button
+    cy.xpath("//*[@data-cy='login-submit-button']").click()
+    // Then user verify on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    // Then user click on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    // Then user verify he/she already login successfully
+    cy.xpath("//*[contains(text(), 'Panda')]").should('be.visible')
   })
 })
