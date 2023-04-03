@@ -152,8 +152,8 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     cy.go('back')
 
     // Then user try to click on vix event
-    cy.xpath("//a[@href='/virtual-internship-experience']").scrollIntoView()
-    cy.xpath("//a[@href='/virtual-internship-experience']").click()
+    cy.xpath("(//a[@href='/virtual-internship-experience'])[2]").scrollIntoView()
+    cy.xpath("(//a[@href='/virtual-internship-experience'])[2]").click()
     // Then user verify the associated link
     cy.url().should('eq','https://web-staging.rakamin.com/virtual-internship-experience')
     // Then user go back to the first link
@@ -220,9 +220,9 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Given user opened Rakamin Staging Website
     cy.visit("https://web-staging.rakamin.com/")
     // Then user verify on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").should('be.visible')
     // Then user click on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").click()
     // Then user verify on login button
     cy.xpath("(//button[contains(text(),'Login')])[2]").should('be.visible')
     // Then user click on login button
@@ -246,9 +246,9 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Given user opened Rakamin Staging Website
     cy.visit("https://web-staging.rakamin.com/")
     // Then user verify on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").should('be.visible')
     // Then user click on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").click()
     // Then user verify on login button
     cy.xpath("(//button[contains(text(),'Login')])[2]").should('be.visible')
     // Then user click on login button
@@ -268,9 +268,9 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Given user opened Rakamin Staging Website
     cy.visit("https://web-staging.rakamin.com/")
     // Then user verify on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").should('be.visible')
     // Then user click on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").click()
     // Then user verify on login button
     cy.xpath("(//button[contains(text(),'Login')])[2]").should('be.visible')
     // Then user click on login button
@@ -290,9 +290,9 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Given user opened Rakamin Staging Website
     cy.visit("https://web-staging.rakamin.com/")
     // Then user verify on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").should('be.visible')
     // Then user click on navbar button
-    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    cy.xpath("//img[contains(@src,'/assets/hamburger.d750d25a.svg')]").click()
     // Then user verify on register button
     cy.xpath("(//button[contains(text(),'Register')])[2]").should('be.visible')
     // Then user click on register button
@@ -300,7 +300,7 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Then user set full name
     cy.xpath("//*[@data-cy='full-name-text-field']").type("Zenith")
     // Then user set email
-    cy.xpath("//*[@data-cy='login-email-text-field']").type("Zenith4@gmail.com")
+    cy.xpath("//*[@data-cy='login-email-text-field']").type("Zenith9@gmail.com")
     // Then user set password
     cy.xpath("//*[@data-cy='login-password-text-field']").type("Zenith123")
     // Then user click on daftar
