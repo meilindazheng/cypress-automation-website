@@ -240,4 +240,48 @@ describe('Test Run Rakamin Staging Web Page', function()  {
     // Then user verify he/she already login successfully
     cy.xpath("//*[contains(text(), 'Panda')]").should('be.visible')
   })
+
+  it('TC 10 - NEGATIVE - Login with the correct email and wrong password', function()  {
+    // TC 09 objective is to verify that user can't login with the correct email and wrong password.
+    // Given user opened Rakamin Staging Website
+    cy.visit("https://web-staging.rakamin.com/")
+    // Then user verify on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    // Then user click on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    // Then user verify on login button
+    cy.xpath("(//button[contains(text(),'Login')])[2]").should('be.visible')
+    // Then user click on login button
+    cy.xpath("(//button[contains(text(),'Login')])[2]").click()
+    // Then user set email
+    cy.xpath("//*[@data-cy='login-email-text-field']").type("abcd@gmail.com")
+    // Then user set password
+    cy.xpath("//*[@data-cy='login-password-text-field']").type("pandabearing")
+    // Then user click submit button
+    cy.xpath("//*[@data-cy='login-submit-button']").click()
+    // Then user verify wording to inform wrong password
+    cy.xpath("//*[contains(text(), 'Kata sandi anda salah')]").should('be.visible')
+  })
+
+  it('TC 11 - NEGATIVE - Login with the wrong email and wrong password', function()  {
+    // TC 09 objective is to verify that user can't login with the correct email and wrong password.
+    // Given user opened Rakamin Staging Website
+    cy.visit("https://web-staging.rakamin.com/")
+    // Then user verify on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").should('be.visible')
+    // Then user click on navbar button
+    cy.xpath("//*[@class='sc-iAolhz dFOiqC']").click()
+    // Then user verify on login button
+    cy.xpath("(//button[contains(text(),'Login')])[2]").should('be.visible')
+    // Then user click on login button
+    cy.xpath("(//button[contains(text(),'Login')])[2]").click()
+    // Then user set email
+    cy.xpath("//*[@data-cy='login-email-text-field']").type("abcdefgh@gmail.com")
+    // Then user set password
+    cy.xpath("//*[@data-cy='login-password-text-field']").type("pandabearing")
+    // Then user click submit button
+    cy.xpath("//*[@data-cy='login-submit-button']").click()
+    // Then user verify wording to inform wrong password
+    cy.xpath("//*[contains(text(), 'Email ini belum terdaftar sebagai akun di Rakamin Academy.')]").should('be.visible')
+  })
 })
